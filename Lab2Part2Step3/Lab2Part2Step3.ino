@@ -11,14 +11,14 @@ void setup() {
   // Set GPIO_PIN pin function to GPIO
   PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO);
 
-  // Set GPIO_PIN to output (W1TS sets only this bit, no read-modify-write)
+  // Set GPIO_PIN to output
   *((volatile uint32_t*)GPIO_ENABLE_W1TS_REG) = (1 << GPIO_PIN);
 
   // Disable timer while configuring
   *(volatile uint32_t*)TIMG_T0CONFIG_REG(0) &= ~(1u << 31);
   // Configure timer to increase
   *(volatile uint32_t*)TIMG_T0CONFIG_REG(0) |= (1u << 30);
-  // Configure timer to not auto reload (in case it is set to true before)
+  // Configure timer to not auto reload
   *(volatile uint32_t*)TIMG_T0CONFIG_REG(0) &= ~(1u << 29);
   // Zero the divider, & with 0 over divider bits
   *(volatile uint32_t*)TIMG_T0CONFIG_REG(0) &= ~(0xFFFFu << 13);

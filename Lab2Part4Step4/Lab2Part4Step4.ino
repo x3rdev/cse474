@@ -40,14 +40,14 @@ void loop() {
   static uint32_t last_toggle_time = 0;
   static int count = 0;
 
-  // Latch the current counter value, then read it
+  // Latch the current counter value, then read it 
   *((volatile uint32_t *)TIMG_T0UPDATE_REG(0)) = 1;
   uint32_t current_time = *((volatile uint32_t *)TIMG_T0LO_REG(0));
-
+ 
   int ambient = analogRead(INPUT_PIN);
   if (ambient > LIGHT_THRESHOLD) {
     ledcWrite(BUZZER_PIN, 0);
-    count = 0;  // restart at low on next trigger
+    count = 0;  // restart at low on next trigger  
     
     last_toggle_time = current_time - BUZZER_TOGGLE_INTERVAL;
     return;

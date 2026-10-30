@@ -16,7 +16,7 @@ void loop() {
   int ambient = analogRead(INPUT_PIN);
   Serial.println(ambient);
   // Invert and scale the 12-bit reading to the 10-bit duty range:
-  // ambient 0 -> DUTY_MAX (brightest), ambient READING_MAX -> 0 (off)
+  // ambient 0 -> DUTY_MAX (brightest), ambient READING_MAX -> 0 (dimmest)
   int duty = ((READING_MAX - ambient) * DUTY_MAX) / READING_MAX;
   Serial.println(duty);
   ledcWrite(LED_PIN, duty);
