@@ -9,8 +9,8 @@ void setup() {
   // Set GPIO_PIN pin function to GPIO
   PIN_FUNC_SELECT(GPIO_PIN_MUX_REG[GPIO_PIN], PIN_FUNC_GPIO);
 
-  // Set GPIO pin 5 to output
-  *((volatile uint32_t*)GPIO_ENABLE_REG) |= (1 << GPIO_PIN);
+  // Set GPIO_PIN to output
+  *((volatile uint32_t*)GPIO_ENABLE_W1TS_REG) = (1 << GPIO_PIN);
 }
 
 void loop() {
