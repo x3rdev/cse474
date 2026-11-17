@@ -2,8 +2,7 @@
  * File:        Lab3Part1.ino
  * Author:      Ryan Kim, Nicolae Ungur
  * Date:        2026-11-17
- * Description: Displays lines typed in the Serial Monitor on a 16x2 I2C LCD
- *              using raw Wire calls.
+ * Description: Displays lines typed in the Serial Monitor on a LCD
  */
 
 // ============================== Includes ==============================
